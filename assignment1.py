@@ -2,6 +2,11 @@
 Update this module docstring with your own details
 Name:Yu hui Hua
 Date started:2021.10.7
+Introduce:This function can help you know information of albums you have.You can chose "L" to
+          see them,or choose "A" to add new albums ,or choose "M" to mark the condition from "r"
+          to "c".When you choose "Q",you can get out of this function and you can know how many
+          albums you have saved.
+Github URL:https://github.com/huayuhui123/Assignment1.git
 """
 import csv
 from operator import itemgetter
@@ -16,6 +21,8 @@ inform = [line for line in csv.reader(open("albums.csv"))]
 
 
 def lists():
+    """This function can list out the albums you have.
+    You can know name,author,year and condition through it."""
     name = []
     author = []
     year = []
@@ -41,7 +48,10 @@ def lists():
 
 
 def add():
+    """This function help you to add new albums into the list.
+    You should input title,artist and year of the new album."""
     def add_new():
+        """This function can return the new album's information."""
         new = []
         title = input("Title:")
         while title != "" and title != " ":
@@ -72,6 +82,8 @@ def add():
 
 
 def mark():
+    """This function can mark the albums from r to c.
+    But you can not mark it from c to r."""
     condition = []
     for row in inform:
         condition.append(row[3])
@@ -99,6 +111,7 @@ def mark():
 
 
 def main_menu():
+    """This function can provide choices you can choose and jump to the function."""
     print("{} albums loaded".format(len(inform)))
     print(menu)
     choice = input(">>>").upper()
@@ -117,7 +130,8 @@ def main_menu():
 
 
 def main():
-    print("Album Tracker 1.4 - by Yu hui Hua")
+    """This function mainly about how to execute."""
+    print("Album Tracker 1.5 - by Yu hui Hua")
     main_menu()
     data_file.close()
 
