@@ -28,6 +28,8 @@ def lists():
     year = []
     condition = []
     for row in sorted(inform, key=itemgetter(1, 0)):
+        # sort the list by author then by title
+        # traverse all thing in list and append to gain classified information
         name.append(row[0])
         author.append(row[1])
         year.append(row[2])
@@ -68,6 +70,8 @@ def add():
                     else:
                         new.append(year)
                         print("{} by {}({}) added to Album Tracker".format(new[0], new[1], new[2]))
+                        # It's hard to break from these while loops without changing correct things
+                        # so we can make a function to stop and return
                         return new
                     year = input("Year:")
                     print("Input can not be blank")
@@ -94,6 +98,8 @@ def mark():
         print("Enter the number of an album to mark as completed")
         m = input(">>>")
         while m.isalpha() or inform[int(float(m)) - 1][3] != "r":
+            # By this way,you can input letters ,int or float
+            # All these can be right so can enter to judge
             if m.isalpha() or int(float(m)) != float(m):
                 print("Invalid input; enter a valid number")
             elif m < "0" or m == "0":
@@ -131,7 +137,7 @@ def main_menu():
 
 def main():
     """This function mainly about how to execute."""
-    print("Album Tracker 1.5 - by Yu hui Hua")
+    print("Album Tracker 1.6 - by Yu hui Hua")
     main_menu()
     data_file.close()
 
